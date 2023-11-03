@@ -4,12 +4,7 @@
 <head>
     <Title>beckham </Title>
     <style>
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        .heading {
             text-align: center;
             color: black;
         }
@@ -34,36 +29,104 @@
 
         }
 
-        a {
-            color: blue;
-        }
+
 
         .center {
             text-align: center;
         }
 
-        * {
+
+
+        a:link,
+        a:visited {
+            background-color: white;
+            color: black;
+            border: 2px solid green;
+            padding: 10px 20px;
             text-align: center;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        a,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        iframe,
-        div {
-            border: 10px solid black;
+        a:hover,
+        a:active {
+            background-color: green;
+            color: white;
+        }
+
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-left: 30px;
+            padding-right: 30px;
+            box-sizing: border-box;
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover,
+        .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+
+        .slideMenuBtn {
+            font-size: 30px;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 3px;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .overlay a {
+                font-size: 20px
+            }
+
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="border">
-        <h1>look at of my projects</h1>
-        <h1>also go to <u>Robbinharris.com</u> to see my dads code stuf.</h1>
+        <h1 class="heading">look at of my projects</h1>
+        <h1 class="heading">also go to <u>Robbinharris.com</u> to see my dads code stuf.</h1>
         <div class="center">
             <iframe src="https://scratch.mit.edu/projects/907473146/embed" allowtransparency="true" width="485"
                 height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
@@ -78,8 +141,36 @@
 
             <a href="https://scratch.mit.edu/studios/33763898" style="font-size: x-large;">look at all of my scratch
                 projects</a>
+            <a href="https://www.wix.com/" style="font-size: x-large;">build your own website on wix</a>
+            <a href="https://scratch.mit.edu/" style="font-size: x-large;">build your own games on scratch</a>
+            <a href="https://code.visualstudio.com/" style="font-size: x-large;">Download VScode</a>
         </div>
     </div>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="https://scratch.mit.edu/studios/33763898" style="font-size: x-large;">look at all of my scratch
+                projects</a>
+            <a href="https://www.wix.com/" style="font-size: x-large;">build your own website on wix</a>
+            <a href="https://scratch.mit.edu/" style="font-size: x-large;">build your own games on scratch</a>
+            <a href="https://code.visualstudio.com/" style="font-size: x-large;">Download VScode</a>
+            <a href="Robbinharris.com">go to Robbinharris.com</a>
+        </div>
+    </div>
+
+
+
+    <span class="slideMenuBtn" onclick="openNav()">&#9776; </span>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
 </body>
 
 </html>
